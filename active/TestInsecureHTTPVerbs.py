@@ -54,13 +54,13 @@ def TestTheURIForInsecureVerbs(sas, msg, uri, insecureverbs):
 		try:
 			if printdebugmessages:
 				print ('Testing Initiated for the HTTP VERB: -- \t' + insecureverb + '\n')
-			msg = msg.cloneRequest();
+			msg = msg.cloneRequest()
 			PrepareHttpRequest(msg, insecureverb)
 			sas.sendAndReceive(msg, False)
 			if printdebugmessages:
 				print('VERB: \t' + insecureverb + '\t-- STATUS: '+ str(msg.getResponseHeader().getStatusCode()) +' -- \tMESSAGE: ' + msg.getResponseHeader().getReasonPhrase() + '\n')
 			ProcessAndPrintAlert(sas, msg, uri, insecureverb)
-		except Exception, e:
+		except Exception as e:
 			print('ERROR For: ' + insecureverb + 'Detail: ' + e.message + '\n')
 
 
